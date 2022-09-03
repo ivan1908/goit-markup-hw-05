@@ -126,6 +126,7 @@ img {
 }
 .header-link,
 .header-info-link{
+    position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -152,12 +153,27 @@ img {
 }
 .header-site-nav .header-link.current {
     color: var(--link-color-focus);
+    opacity: 1;
+}
+.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+
+    width: 100%;
+    height: 4px;
+    display: block;
+    background-color: var(--link-color);
+    border-radius: 2px;
 }
 .header-info-nav .item{
     display: flex;
     margin-right: 10px;
 }
+
 /* header decoration */
+
 .header-info-link {
     display: flex;
     align-items: center;
@@ -590,6 +606,7 @@ img {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 100;
+    opacity: 1;
     transition: opacity var(--transition-dur-and-func), visibility var(--transition-dur-and-func);
 }
 .backdrop.is-hidden {
